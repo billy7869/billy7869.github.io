@@ -258,6 +258,10 @@
     border-bottom: 1px solid var(--line);
   }
   .win-link { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
+  /* 화면에는 영상이 바로 있으니 숨기고, PDF 에서만 링크로 대체한다
+     (PDF 는 영상을 재생하지 못한다) */
+  .print-only { display: none; }
+
 
   /* ---------- 내가 넣은 노하우 ---------- */
   /* 경험 → 판단 → 설계 로 이어지는 흐름. 세로 레일과 점으로 인과를 보이게 한다.
@@ -400,6 +404,7 @@
     .card, .win, .tool, .game, .job, .step, .facts dl { break-inside: avoid; }
     .games { grid-template-columns: repeat(4, 1fr); }
     .pagenav { display: none; }
+    .print-only { display: block; }
     /* 화면 전용 효과는 인쇄에서 의미가 없다 */
     .card, .win, .tool, .game { box-shadow: none; }
     .game { transition: none; }
@@ -504,6 +509,7 @@
              controls playsinline preload="none" width="500" height="964">
         플레이 영상을 재생할 수 없는 브라우저입니다.
       </video>
+      <p class="win-link print-only"><a href="video/yokai-poker.mp4">플레이 영상 보기 &rarr;</a></p>
       <h3>3. 요괴 포커</h3>
       <p class="meta">yokai-poker &middot; 모바일 게임 &middot; 개발 중</p>
       <div class="figs">
