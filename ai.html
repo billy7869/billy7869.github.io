@@ -246,6 +246,17 @@
     margin: -20px -22px 16px;
     border-bottom: 1px solid var(--line);
   }
+  /* 세로 영상이라 카드 높이가 과해지지 않게 상한을 두고 가운데 정렬한다.
+     poster 를 깔고 preload="none" 이라 누르기 전에는 내려받지 않는다. */
+  .win-video {
+    display: block;
+    width: calc(100% + 44px);
+    margin: -20px -22px 16px;
+    max-height: 440px;
+    background: #14120f;
+    object-fit: contain;
+    border-bottom: 1px solid var(--line);
+  }
   .win-link { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
 
   /* ---------- 내가 넣은 노하우 ---------- */
@@ -489,7 +500,10 @@
     </article>
 
     <article class="win" id="tool-game">
-      <img class="win-shot" src="img/shot-game.jpg" alt="요괴 포커 존 1 지도 화면" width="1200" height="750" loading="lazy" decoding="async">
+      <video class="win-video" src="video/yokai-poker.mp4" poster="img/shot-game.jpg"
+             controls playsinline preload="none" width="500" height="964">
+        플레이 영상을 재생할 수 없는 브라우저입니다.
+      </video>
       <h3>3. 요괴 포커</h3>
       <p class="meta">yokai-poker &middot; 모바일 게임 &middot; 개발 중</p>
       <div class="figs">
