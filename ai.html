@@ -269,6 +269,70 @@
   .card li { margin-bottom: 4px; }
   .card li b { color: var(--ink); }
 
+  /* ---------- 내가 넣은 노하우 ---------- */
+  /* 경험 → 판단 → 설계 로 이어지는 흐름. 세로 레일과 점으로 인과를 보이게 한다.
+     "AI가 만들어준 것"이 아니라 "내 판단이 설계로 간 것"임을 드러내는 것이 목적. */
+  .knowhow {
+    margin-top: 18px;
+    padding: 18px 20px 16px;
+    background: var(--accent-bg);
+    border-radius: 8px;
+  }
+  .kh-label {
+    margin: 0 0 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .kh-flow { margin: 0; padding: 0; list-style: none; position: relative; }
+  /* 단계를 잇는 세로 레일 */
+  .kh-flow::before {
+    content: "";
+    position: absolute;
+    left: 21px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: var(--accent);
+    opacity: .25;
+  }
+  .kh-flow li {
+    position: relative;
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 12px;
+    align-items: start;
+    padding-bottom: 14px;
+  }
+  .kh-flow li:last-child { padding-bottom: 0; }
+  .kh-tag {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    height: 22px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .kh-flow li > span:last-child {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    padding-top: 1px;
+  }
+  .kh-flow b { color: var(--ink); }
+  @media (max-width: 520px) {
+    .kh-flow::before { display: none; }
+    .kh-flow li { grid-template-columns: 1fr; gap: 4px; }
+    .kh-tag { justify-self: start; padding: 0 10px; }
+  }
+
   /* ---------- 대표 성과 ---------- */
   /* 항목이 4개다. auto-fit 이 3열을 만들어 둘째 줄에 하나만 남았다.
      2열로 고정하면 2x2 로 맞고 카드가 넓어져 줄바꿈도 줄어든다. */
@@ -373,8 +437,8 @@
 <header class="hero">
   <div class="wrap hero-inner">
     <p class="eyebrow">조한익 &middot; AI 활용 포트폴리오</p>
-    <h1>AI로 만든 PM 도구 3종</h1>
-    <p class="role">기획 · 설계 · 구현 · 24시간 운영까지 직접</p>
+    <h1>AI를 활용해 제작 중인<br>업무 도구 및 게임</h1>
+    <p class="role">22년의 현장 경험을 설계로 옮긴 세 가지</p>
     <p class="pitch">
       AI를 <strong>"활용한다"</strong>는 말로는 부족하다고 생각했습니다.
       22년간 PM으로 일하며 반복해서 부딪힌 병목을 직접 자동화해 실제로 운영하고 있습니다.
@@ -394,9 +458,9 @@
 
 <nav class="pagenav">
   <ul>
+    <li><a href="#tool-steam">스팀 인디 레이더</a></li>
     <li><a href="#tool-art">아트 PM 툴</a></li>
     <li><a href="#tool-game">요괴 포커</a></li>
-    <li><a href="#tool-steam">Steam Radar</a></li>
     <li><a href="#issues">미해결</a></li>
     <li><a href="#stack">도구</a></li>
     <li><a href="#career">경력</a></li>
@@ -405,14 +469,14 @@
 
 <div class="toc">
   <div class="wrap">
-    <p class="toc-label">이 페이지에 있는 것</p>
+    <p class="toc-label">제작 중인 것</p>
     <ol class="toc-list">
+      <li><a href="#tool-steam"><b>스팀 인디 레이더</b><span>흥행 전 인디게임 탐지 · 5축 스코어링</span></a></li>
       <li><a href="#tool-art"><b>아트 PM 자동화 툴</b><span>Slack + Kitsu + git 봇 · NAS 24시간 운영</span></a></li>
-      <li><a href="#tool-game"><b>요괴 포커</b><span>토스 앱인토스 미니게임 · 테스트 41개 통과</span></a></li>
-      <li><a href="#tool-steam"><b>Steam Indie Radar</b><span>5축 스코어링 · LLM 호출 0회</span></a></li>
+      <li><a href="#tool-game"><b>요괴 포커</b><span>토스 앱인토스 미니게임 · 개발 중</span></a></li>
       <li><a href="#issues"><b>미해결로 남은 것</b><span>아는 문제를 적어둡니다</span></a></li>
       <li><a href="#stack"><b>쓰는 도구</b><span>만들 때 · 붙일 때 · 돌릴 때</span></a></li>
-      <li><a href="#career"><b>경력 포트폴리오</b><span>22년, 게임 PD · 개발 · 사업 PM</span></a></li>
+      <li><a href="#career"><b>경력 포트폴리오</b><span>22년, 개발·사업 PM / 게임 PD</span></a></li>
     </ol>
   </div>
 </div>
@@ -421,68 +485,72 @@
 <section id="projects">
   <div class="wrap">
   <h2>Projects</h2>
-  <p class="lede">직접 만들어 돌리는 것들</p>
+  <p class="lede">AI를 활용해 제작 중인 업무 도구 및 게임</p>
+  <p style="margin:-18px 0 28px; color:var(--ink-soft); font-size:16px; max-width:64ch;">
+    세 가지 모두 <b>무엇을 만들지 정하고 어떻게 돌아갈지 설계한 것은 저</b>이고,
+    구현을 AI와 함께 했습니다. 아래는 각각에 어떤 현장 경험이 들어갔는지입니다.
+  </p>
 
   <div class="wins">
 
-    <article class="win" id="tool-art">
-      <h3>아트 PM 자동화 툴</h3>
-      <p class="meta">art-pm-tool &middot; 2026.10 ~ 운영 중</p>
+    <article class="win" id="tool-steam">
+      <h3>1. 스팀 인디 레이더</h3>
+      <p class="meta">steam-indie-radar &middot; 매일 자동 수집 중</p>
       <div class="figs">
-        <div><b>73개</b><span>아트 공정 체크리스트</span></div>
-        <div><b>28개</b><span>자동 테스트 통과</span></div>
-        <div><b>24시간</b><span>NAS 상시 가동</span></div>
+        <div><b>1,180개</b><span>수집한 신작</span></div>
+        <div><b>276개</b><span>점수 산출</span></div>
+        <div><b>0회</b><span>LLM 호출</span></div>
       </div>
-      <p><b>문제</b> — 20명 이하 스튜디오에서 PM 1인이 전 파트와 사업관리를 겸임하면 세 가지가 반복됩니다.
-      요청을 자세히 안 봐서 자기 일인지 모르고, 완료 체크를 안 해서 다음 공정이 멈추고, 결국 PM이 따라다니며 챙기게 됩니다.</p>
-      <p><b>접근</b> — Kitsu(상태 저장) + Slack(알림·버튼) + git(작업물 감지)을 잇는 봇을 단계별로 만들었습니다.
-      배정 → 확인 → 작업물 감지 → PD 승인 → 다음 공정 자동 연결까지 A~F단계 1차 완료.
-      작업물 미리보기는 PNG·TGA 썸네일, PSD 레이어 합성, FBX 형태 렌더까지 구현했습니다.</p>
-      <p><b>남은 것</b> — FBX 미리보기와 실제 Unity 저장소 연동은 미확인. 회의록 자동화(H5) 1건 남음.</p>
+      <p>아직 안 터졌지만 <b>지금 오르는 중인</b> 인디게임을 매일 찾아냅니다.
+      모멘텀·품질·화력·스트리머 적합도·숨은보석 5개 축을 따로 점수화합니다.</p>
+      <div class="knowhow">
+        <p class="kh-label">내가 넣은 노하우</p>
+        <ol class="kh-flow">
+          <li><span class="kh-tag">경험</span><span>22년간 사업 PM으로 경쟁작 유료화와 시장을 분석해 왔습니다.</span></li>
+          <li><span class="kh-tag">판단</span><span>Steam 인기 순위는 <b>후행 지표</b>입니다. 거기 올라온 시점엔 이미 늦습니다.</span></li>
+          <li><span class="kh-tag">설계</span><span>흥행의 <b>선행 신호</b>를 5개 축으로 분리하고, <b>이미 알려진 정도는 오히려 감점</b>으로 넣었습니다. 단순 인기순은 Steam이 이미 보여주기 때문입니다.</span></li>
+        </ol>
+      </div>
+    </article>
+
+    <article class="win" id="tool-art">
+      <h3>2. 아트 PM 자동화 툴</h3>
+      <p class="meta">art-pm-tool &middot; NAS 24시간 운영 중</p>
+      <div class="figs">
+        <div><b>73개</b><span>공정 체크리스트</span></div>
+        <div><b>28개</b><span>자동 테스트 통과</span></div>
+        <div><b>24시간</b><span>상시 가동</span></div>
+      </div>
+      <p>배정 → 확인 → 작업물 감지 → PD 승인 → 다음 공정 연결까지,
+      PM이 따라다니며 챙기던 일을 Slack · Kitsu · git 을 잇는 봇이 대신합니다.</p>
+      <div class="knowhow">
+        <p class="kh-label">내가 넣은 노하우</p>
+        <ol class="kh-flow">
+          <li><span class="kh-tag">경험</span><span>20명 이하 스튜디오에서 PM 1인이 전 파트와 사업관리를 겸임해 봤습니다.</span></li>
+          <li><span class="kh-tag">판단</span><span>병목은 세 가지입니다. 요청을 안 봐서 자기 일인지 모르고, 완료 체크를 안 해서 다음 공정이 멈추고, 결국 <b>PM이 따라다니게</b> 됩니다.</span></li>
+          <li><span class="kh-tag">설계</span><span>공정 연결의 판단 기준을 <b>Slack 버튼이 아니라 Kitsu의 상태 변화</b>에 뒀습니다. 사람이 버튼을 누를 거라 기대하면 자동화는 깨집니다. 재알림도 <b>근무시간 기준</b>으로 계산해 주말을 건너뜁니다.</span></li>
+        </ol>
+      </div>
     </article>
 
     <article class="win" id="tool-game">
-      <h3>요괴 포커</h3>
+      <h3>3. 요괴 포커</h3>
       <p class="meta">toss-game &middot; 토스 앱인토스 미니게임 &middot; 개발 중</p>
       <div class="figs">
         <div><b>41개</b><span>자동 테스트 통과</span></div>
         <div><b>8종</b><span>민화 아트</span></div>
-        <div><b>15종</b><span>효과음 적용</span></div>
+        <div><b>15종</b><span>효과음</span></div>
       </div>
-      <p><b>문제</b> — 플랫폼 제약을 모르고 만들면 다 만든 뒤에 갈아엎게 됩니다.</p>
-      <p><b>접근</b> — 샌드박스에서 검증 가능한 범위를 먼저 확인하고 거기서 역산했습니다.
-      인앱 광고와 가로 모드가 테스트 불가라 <b>세로 모드로 확정</b>했고, 심의 경로도 미리 조사해
-      구글플레이의 테스터 12명×14일 요건을 피해 원스토어를 현실적 대안으로 잡았습니다.
-      토스 전용 기능(광고·저장·로그인)은 <code>src/platform/</code> 한 곳에 모아, 스토어판에서는 그 부분만 교체하면 되게 설계했습니다.</p>
-      <p><b>남은 것</b> — 2단계 게임 코어 진행 중. 존 1 버티컬 슬라이스 작업 중.</p>
-    </article>
-
-    <article class="win" id="tool-steam">
-      <h3>Steam Indie Radar</h3>
-      <p class="meta">steam-indie-radar &middot; 매일 자동 수집 중</p>
-      <div class="figs">
-        <div><b>1,180개</b><span>수집한 신작</span></div>
-        <div><b>276개</b><span>점수 산출 완료</span></div>
-        <div><b>0회</b><span>LLM 호출</span></div>
+      <p>포커 족보로 싸우는 던전 크롤러입니다. 존 클리어·장비·상점·공포 게이지까지
+      구현하고, 존 1을 완성품 수준의 한 조각으로 만들고 있습니다.</p>
+      <div class="knowhow">
+        <p class="kh-label">내가 넣은 노하우</p>
+        <ol class="kh-flow">
+          <li><span class="kh-tag">경험</span><span>모바일 · PC 온라인 · Steam · PS5 로 20개 타이틀을 런칭했습니다.</span></li>
+          <li><span class="kh-tag">판단</span><span><b>플랫폼 제약을 모르고 만들면 다 만든 뒤에 갈아엎게</b> 됩니다.</span></li>
+          <li><span class="kh-tag">설계</span><span>샌드박스에서 검증 가능한 범위를 먼저 확인하고 <b>거기서 역산</b>했습니다. 가로 모드가 테스트 불가라 세로로 확정했고, 심의 경로도 미리 조사했습니다. 토스 전용 기능은 <code>src/platform/</code> 한 곳에 모아 스토어판에서는 그 부분만 교체하면 되게 했습니다.</span></li>
+        </ol>
       </div>
-      <p><b>문제</b> — Steam 인기 순위는 후행 지표입니다. 거기 올라온 시점엔 이미 늦습니다.</p>
-      <p><b>접근</b> — 모멘텀·품질·화력·스트리머 적합도·숨은보석 <b>5개 축을 분리해</b> 점수화하고,
-      이미 알려진 정도는 오히려 감점으로 넣었습니다. 단순 인기순은 Steam이 이미 보여주기 때문입니다.
-      launchd로 매일 10시 자동 수집하며 대시보드는 상시 구동합니다.</p>
-      <p><b>남은 것</b> — 아래 "미해결" 참고.</p>
-    </article>
-
-    <article class="win">
-      <h3>설계 판단 기록</h3>
-      <p class="meta">세 프로젝트 공통</p>
-      <div class="figs">
-        <div><b>전 과정</b><span>결정 근거를 문서로</span></div>
-      </div>
-      <p>모든 프로젝트에 <code>context-notes.md</code>를 함께 씁니다.
-      <b>검토했지만 접은 선택지와 그 이유까지</b> 적어둡니다. 그래야 몇 달 뒤에 같은 고민을 반복하지 않고,
-      다른 사람이 이어받을 수 있습니다.</p>
-      <p>이 방식으로 세 프로젝트가 세션을 넘어 이어지고 있고, 작업 기록은 매일 아침 자동으로
-      개인 위키에 적재됩니다.</p>
     </article>
 
   </div>
