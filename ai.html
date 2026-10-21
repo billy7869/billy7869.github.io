@@ -184,6 +184,9 @@
     color: var(--accent);
   }
   .toc-list a:hover { border-color: var(--accent); transform: translateX(2px); }
+  /* 항목이 5개라 2열에서 마지막 칸이 빈다. 경력은 다른 페이지로 나가는
+     항목이라 성격도 달라 전체 폭을 쓴다. */
+  .toc-list li:last-child { grid-column: 1 / -1; }
   .toc-list b { font-size: 16px; letter-spacing: -0.02em; }
   .toc-list span { grid-column: 2; font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
 
@@ -234,6 +237,16 @@
   .card ul { margin: 0; padding-left: 18px; font-size: 15.5px; color: var(--ink-soft); }
   .card li { margin-bottom: 4px; }
   .card li b { color: var(--ink); }
+
+  /* 카드 상단 전체 폭 스크린샷 — "실제로 돌아간다"를 글보다 먼저 보여준다 */
+  .win-shot {
+    display: block;
+    width: calc(100% + 44px);
+    height: auto;
+    margin: -20px -22px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .win-link { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
 
   /* ---------- 내가 넣은 노하우 ---------- */
   /* 경험 → 판단 → 설계 로 이어지는 흐름. 세로 레일과 점으로 인과를 보이게 한다.
@@ -309,6 +322,7 @@
     border-left: 3px solid var(--accent);
     border-radius: var(--radius);
     padding: 20px 22px;
+    overflow: hidden;
     box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 26px -20px rgba(0,0,0,.35);
   }
   .win h3 { margin: 0 0 2px; font-size: 18px; letter-spacing: -0.02em; }
@@ -318,21 +332,6 @@
   .win .figs div span { font-size: 12.5px; color: var(--ink-faint); }
   .win p { margin: 0; font-size: 15px; color: var(--ink-soft); }
 
-  /* ---------- 전 주기 ---------- */
-  .cycle { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-  .step { background: var(--surface); padding: 18px 16px; }
-  .step .no {
-    display: inline-grid;
-    place-items: center;
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    background: var(--accent);
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-  }
-  .step h3 { margin: 10px 0 6px; font-size: 16px; letter-spacing: -0.02em; }
-  .step p { margin: 0; font-size: 14px; color: var(--ink-soft); line-height: 1.6; }
 
 
 
@@ -418,8 +417,6 @@
     <li><a href="#tool-steam">스팀 인디 레이더</a></li>
     <li><a href="#tool-art">아트 PM 툴</a></li>
     <li><a href="#tool-game">요괴 포커</a></li>
-    <li><a href="#issues">미해결</a></li>
-    <li><a href="#stack">도구</a></li>
     <li><a href="#career">경력</a></li>
   </ul>
 </nav>
@@ -431,9 +428,6 @@
       <li><a href="#tool-steam"><b>스팀 인디 레이더</b><span>흥행 전 인디게임 탐지 · 5축 스코어링</span></a></li>
       <li><a href="#tool-art"><b>아트 PM 자동화 툴</b><span>Slack + Kitsu + git 봇 · NAS 24시간 운영</span></a></li>
       <li><a href="#tool-game"><b>요괴 포커</b><span>토스 앱인토스 미니게임 · 개발 중</span></a></li>
-      <li><a href="#issues"><b>미해결로 남은 것</b><span>아는 문제를 적어둡니다</span></a></li>
-      <li><a href="#stack"><b>쓰는 도구</b><span>만들 때 · 붙일 때 · 돌릴 때</span></a></li>
-      <li><a href="#career"><b>경력 포트폴리오</b><span>22년, 개발·사업 PM / 게임 PD</span></a></li>
     </ol>
   </div>
 </div>
@@ -451,6 +445,7 @@
   <div class="wins">
 
     <article class="win" id="tool-steam">
+      <img class="win-shot" src="img/shot-steam.jpg" alt="Steam Indie Radar 대시보드 화면" width="1200" height="750" loading="lazy" decoding="async">
       <h3>1. 스팀 인디 레이더</h3>
       <p class="meta">steam-indie-radar &middot; 매일 자동 수집 중</p>
       <div class="figs">
@@ -460,6 +455,7 @@
       </div>
       <p>아직 안 터졌지만 <b>지금 오르는 중인</b> 인디게임을 매일 찾아냅니다.
       모멘텀·품질·화력·스트리머 적합도·숨은보석 5개 축을 따로 점수화합니다.</p>
+      <p class="win-link"><a href="https://steamradar.ddns.net" target="_blank" rel="noopener">실제 구동 중인 대시보드 &rarr;</a></p>
       <div class="knowhow">
         <p class="kh-label">내가 넣은 노하우</p>
         <ol class="kh-flow">
@@ -471,6 +467,7 @@
     </article>
 
     <article class="win" id="tool-art">
+      <img class="win-shot" src="img/shot-artpm.jpg" alt="아트 PM 에이전트 소개 페이지 화면" width="1200" height="750" loading="lazy" decoding="async">
       <h3>2. 아트 PM 자동화 툴</h3>
       <p class="meta">art-pm-tool &middot; NAS 24시간 운영 중</p>
       <div class="figs">
@@ -480,6 +477,7 @@
       </div>
       <p>배정 → 확인 → 작업물 감지 → PD 승인 → 다음 공정 연결까지,
       PM이 따라다니며 챙기던 일을 Slack · Kitsu · git 을 잇는 봇이 대신합니다.</p>
+      <p class="win-link"><a href="https://artpm.tail483624.ts.net" target="_blank" rel="noopener">라이브 데모 보기 &rarr;</a></p>
       <div class="knowhow">
         <p class="kh-label">내가 넣은 노하우</p>
         <ol class="kh-flow">
@@ -491,6 +489,7 @@
     </article>
 
     <article class="win" id="tool-game">
+      <img class="win-shot" src="img/shot-game.jpg" alt="요괴 포커 존 1 지도 화면" width="1200" height="750" loading="lazy" decoding="async">
       <h3>3. 요괴 포커</h3>
       <p class="meta">toss-game &middot; 토스 앱인토스 미니게임 &middot; 개발 중</p>
       <div class="figs">
@@ -514,34 +513,6 @@
   </div>
 </section>
 
-<section id="issues">
-  <div class="wrap">
-  <h2>Open Issues</h2>
-  <p class="lede">미해결로 남은 것</p>
-  <p style="margin:-18px 0 26px; color:var(--ink-soft); font-size:16px; max-width:62ch;">
-    돌아간다고 해서 다 끝난 것은 아닙니다. 아는 문제를 적어두는 편이 모르는 척하는 것보다 낫다고 생각합니다.
-  </p>
-
-  <div class="cycle">
-    <div class="step">
-      <div class="no">01</div>
-      <h3>스코어링 편향 3건</h3>
-      <p>2차 심층수집 대상을 동시접속자 내림차순으로 뽑고 있어 목적과 정반대입니다. 속도 데이터가 없는 게임 —
-      정확히 "아직 안 뜬 게임" — 이 구조적으로 최하위에 고정됩니다. 층화 샘플링과 순수 속도 정렬 중 미결정.</p>
-    </div>
-    <div class="step">
-      <div class="no">02</div>
-      <h3>Unity 저장소 연동</h3>
-      <p>FBX 미리보기는 공개 샘플 3종으로만 시험했습니다. 실제 프로젝트 저장소에 붙였을 때의 동작은 미확인입니다.</p>
-    </div>
-    <div class="step">
-      <div class="no">03</div>
-      <h3>NAS 메모리</h3>
-      <p>Kitsu 권장 메모리가 DS918+ 기본 사양보다 높아, 팀 전체가 쓰려면 증설이 필요할 수 있습니다.</p>
-    </div>
-  </div>
-  </div>
-</section>
 
 <section id="stack">
   <div class="wrap">
