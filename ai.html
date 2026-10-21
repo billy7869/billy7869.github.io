@@ -110,40 +110,6 @@
   }
   .pitch strong { color: #fff; }
 
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-top: 44px;
-    padding-top: 34px;
-    border-top: 1px solid rgba(244,240,234,.18);
-  }
-  .hero-stats b {
-    display: block;
-    font-size: 44px;
-    line-height: 1.02;
-    letter-spacing: -0.035em;
-    color: #fff;
-  }
-  .hero-stats b i {
-    font-style: normal;
-    font-size: 18px;
-    font-weight: 700;
-    margin-left: 3px;
-    color: #e8a075;
-  }
-  .hero-stats span {
-    display: block;
-    margin-top: 8px;
-    font-size: 13px;
-    line-height: 1.5;
-    color: rgba(244,240,234,.58);
-  }
-  .hero-meta {
-    margin: 24px 0 0;
-    font-size: 14px;
-    color: rgba(244,240,234,.62);
-  }
 
 
   /* ---------- 상단 고정 바 + 목차 ---------- */
@@ -394,14 +360,12 @@
   @media (max-width: 860px) {
     .wins { grid-template-columns: 1fr; }
     .toc-list { grid-template-columns: 1fr; }
-    .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 20px 24px; }
   }
   @media (max-width: 640px) {
     body { font-size: 16px; }
     .hero-inner { padding-block: 52px 44px; }
     .hero h1 { font-size: 38px; }
     .role { font-size: 18px; }
-    .hero-stats b { font-size: 34px; }
     section { padding-block: 48px; }
     .card::after { font-size: 68px; right: 10px; }
     /* 한 열로 접히면 레일이 갈 자리가 없다 */
@@ -446,13 +410,6 @@
       운영은 NAS에서 돌아갑니다.
     </p>
 
-    <div class="hero-stats">
-      <div><b>3<i>종</i></b><span>운영 중인 자동화 도구</span></div>
-      <div><b>24<i>시간</i></b><span>NAS 상시 가동</span></div>
-      <div><b>0<i>회</i></b><span>수집·채점 단계 LLM 호출</span></div>
-      <div><b>1,180<i>개</i></b><span>매일 수집하는 Steam 신작</span></div>
-    </div>
-    <p class="hero-meta">Claude Code &nbsp;·&nbsp; Python &nbsp;·&nbsp; Docker &nbsp;·&nbsp; Slack API &nbsp;·&nbsp; Kitsu &nbsp;·&nbsp; 시놀로지 NAS</p>
   </div>
 </header>
 
